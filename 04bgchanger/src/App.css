@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .button {
+  color: #ffffff;
+}
+
+.animated-bg {
+  background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.glassmorphism {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.button {
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  color: black;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.5s;
+  animation: fadeIn 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.button:active::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  transition: 0s;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.button:active {
+  transform: scale(0.95);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode-toggle {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode .dark-mode-toggle {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
